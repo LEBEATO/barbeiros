@@ -1,0 +1,11 @@
+import { Schema, models, model } from "mongoose";
+const schema = new Schema(
+  {
+    name: String,
+    email: { type: String, required: true, unique: true },
+    passwordHash: String,
+    role: { type: String, enum: ["admin"], default: "admin" },
+  },
+  { timestamps: true },
+);
+export default models.User || model("User", schema);

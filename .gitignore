@@ -1,0 +1,16 @@
+﻿node_modules/
+.next/
+.env*
+!.env.example
+.references/
+*.tsbuildinfo
+*.log
+logs/
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.pem
+*.key
+*.p12
+*.pfx
