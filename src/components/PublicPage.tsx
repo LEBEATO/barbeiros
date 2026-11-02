@@ -1,4 +1,5 @@
 "use client";
+import "@/app/premium-redesign.css";
 import { useEffect, useState } from "react";
 import { services as initial } from "@/data/services";
 import { ServiceData } from "@/types";
