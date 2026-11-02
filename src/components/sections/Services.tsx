@@ -1,54 +1,44 @@
 "use client";
 import { useState } from "react";
-import { Scissors, Combine, ArrowUpRight, Sparkles, Clock } from "lucide-react";
+import { ArrowUpRight, Clock } from "lucide-react";
 import SectionTitle from "@/components/ui/SectionTitle";
 import BookingModal from "@/components/booking/BookingModal";
 import { ServiceData } from "@/types";
 import { money } from "@/lib/utils";
-const icons = [Scissors, Combine, Sparkles, Scissors];
 export default function Services({ services }: { services: ServiceData[] }) {
   const [selected, setSelected] = useState("");
   return (
     <section className="section" id="servicos">
       <div className="container">
-        <div className="section-heading" data-reveal>
+        <div className="section-heading services-heading" data-reveal>
           <SectionTitle
             eyebrow="01 / NOSSOS SERVIÇOS"
-            title="O cuidado que define você."
+            title="Escolha o seu ritual."
           >
-            Do clássico ao contemporâneo, excelência em cada detalhe.
+            Da primeira conversa ao acabamento: um atendimento pensado para você.
           </SectionTitle>
-          <span className="tiny-note">ESCOLHA SEU RITUAL ↓</span>
+          <span className="tiny-note">TOQUE PARA AGENDAR ↓</span>
         </div>
-        <div className="service-grid">
+        <div className="ritual-list">
           {services.map((s, i) => {
-            const Icon = icons[i % icons.length];
             return (
               <button
                 data-reveal
-                className={
-                  "service-card " + (s.slug === "corte-barba" ? "featured" : "")
-                }
+                className="ritual-row"
                 key={s._id}
                 onClick={() => setSelected(s.slug)}
               >
-                {s.slug === "corte-barba" && (
-                  <span className="card-label">O RITUAL COMPLETO</span>
-                )}
-                <div className="card-top">
-                  <Icon size={32} strokeWidth={1} />
-                  <span>0{i + 1}</span>
-                </div>
-                <h3>{s.name}</h3>
-                <p>{s.description}</p>
-                <span className="duration">
+                <span className="ritual-index">0{i + 1}</span>
+                <span className="ritual-title">
+                  <strong>{s.name}</strong>
+                  <small>{s.description}</small>
+                </span>
+                <span className="ritual-time">
                   <Clock size={13} />
                   {s.duration} minutos
                 </span>
-                <div className="card-bottom">
-                  <span>{money(s.price)}</span>
-                  <ArrowUpRight size={21} />
-                </div>
+                <span className="ritual-price">{money(s.price)}</span>
+                <ArrowUpRight className="ritual-arrow" size={22} />
               </button>
             );
           })}
