@@ -186,3 +186,55 @@
 .hero-redesign h1 { max-width:800px; font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; font-size:clamp(56px,7.1vw,106px); font-weight:600; letter-spacing:-5.9px; line-height:.95; text-wrap:balance; text-shadow:0 5px 30px #000a; }
 .hero-meta { z-index:2; }
 @media (max-width:850px) { .hero-photo { background-position:65% center; } .hero-redesign .hero-video { opacity:.12; } .hero-shade { background:linear-gradient(90deg,#080808fa 0%,#080808e2 59%,#08080874 100%),linear-gradient(0deg,#080808e3 0%,transparent 39%); } }
+
+
+/* Final mobile pass: keep imagery supportive and every interaction touch-friendly. */
+@media (max-width: 600px) {
+  .container { width: calc(100% - 32px); }
+  .header { height: 66px; padding: 0 16px; }
+  .brand { font-size: 13px; }
+  .brand small { display: none; }
+  .nav { top: 66px; padding-inline: 20px; }
+  .hero-redesign { min-height: 680px; height: 100svh; max-height: 760px; }
+  .hero-photo {
+    inset: auto 0 0;
+    height: 56%;
+    background-size: auto 100%;
+    background-position: 78% bottom;
+    opacity: .82;
+  }
+  .hero-redesign .hero-video { display: none; }
+  .hero-shade {
+    background: linear-gradient(180deg, #080808 0%, #080808ee 49%, #0808086b 100%), linear-gradient(90deg, #080808e6 0%, transparent 85%);
+  }
+  .hero-content-redesign { padding-top: 123px; }
+  .hero-location { font-size: 7px; letter-spacing: 1.35px; }
+  .hero-redesign h1 { max-width: 330px; font-size: clamp(47px, 14.1vw, 61px); letter-spacing: -3.4px; line-height: .96; margin: 19px 0; }
+  .hero-redesign .hero-content > p { font-size: 11px; max-width: 270px; line-height: 1.7; }
+  .hero-actions { gap: 13px; }
+  .hero-actions .button { width: 100%; max-width: 260px; min-height: 52px; }
+  .hero-signature { display: none; }
+  .hero-meta { left: 16px; bottom: 18px; font-size: 6px; letter-spacing: 1.5px; }
+  .section { padding: 72px 0; }
+  .ticker { padding: 14px 16px; font-size: 6px; letter-spacing: 1.5px; }
+  h2 { font-size: 34px; }
+  .service-showcase { padding: 60px 0 62px; }
+  .showcase-art { min-height: 230px; margin-inline: -4px; }
+  .showcase-copy h2 { font-size: 39px; letter-spacing: -2px; }
+  .showcase-list button { min-height: 52px; }
+  .showcase-action { width: 100%; min-height: 52px; }
+  .showcase-controls { justify-content: flex-start; }
+  .experience-art { margin-right: 0; height: 300px; }
+  .experience-stamp { right: -7px; bottom: 18px; }
+  .stats { gap: 5px; }
+  .stats strong { font-size: 25px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .gallery-item { height: 190px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-grid .full { grid-column: auto; }
+  input, select, textarea { min-height: 48px; font-size: 16px; }
+  .booking-panel { padding: 24px 16px; }
+  .contact-form .button { width: 100%; justify-self: stretch; min-height: 52px; }
+  .footer-top, .footer-bottom { gap: 18px; }
+  .floating-wa { width: 52px; height: 52px; right: 14px; bottom: 14px; }
+}
