@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
-import { ArrowUpRight, ArrowDown, Star } from "lucide-react";
+import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { whatsapp } from "@/lib/utils";
 
 export default function Hero({ video }: { video: boolean }) {
   return (
     <section className="hero hero-redesign" id="inicio">
-      <div className="hero-photo" aria-hidden="true" />
+      <div className="hero-photo hero-atelier-photo" aria-hidden="true" />
       {video && (
         <video className="hero-video" autoPlay muted loop playsInline>
           <source src="/videos/barber-hero.mp4" type="video/mp4" />
@@ -14,35 +14,35 @@ export default function Hero({ video }: { video: boolean }) {
       )}
       <div className="hero-shade" aria-hidden="true" />
       <div className="container hero-content hero-content-redesign">
-        <div className="hero-location" data-reveal>
-          <i /> BARBEARIA PREMIUM · POÇOS DE CALDAS
+        <div className="hero-location hero-atelier-kicker" data-reveal>
+          <i /> POÇOS DE CALDAS, MG · DESDE 2018
         </div>
         <h1 data-reveal>
-          O corte que
+          Estilo com
           <br />
-          combina com
+          identidade,
           <br />
-          <em>a sua presença.</em>
+          <em>sem personagem.</em>
         </h1>
         <p data-reveal>
-          Precisão, cuidado e personalidade em cada detalhe.
-          <br className="desktop-break" /> Seu horário começa aqui.
+          Corte, barba e conversa boa. Um atendimento feito para o seu rosto,
+          <br className="desktop-break" /> sua rotina e o jeito que você quer se sentir.
         </p>
         <div className="hero-actions" data-reveal>
           <Link className="button" href={whatsapp()}>
-            Agendar meu horário <ArrowUpRight size={18} />
+            Reservar horário <ArrowUpRight size={18} />
           </Link>
           <Link className="text-link" href="#servicos">
             Ver serviços <ArrowDown size={16} />
           </Link>
         </div>
-        <div className="hero-signature" data-reveal>
-          <span className="stars">★★★★★</span>
-          <span>Atendimento que respeita o seu tempo.</span>
+        <div className="hero-signature hero-atelier-note" data-reveal>
+          <span>01</span>
+          <span>Seu tempo aqui é bem usado.</span>
         </div>
       </div>
       <div className="hero-meta" aria-label="Serviços disponíveis">
-        <span>CORTE</span><i /> <span>BARBA</span><i /> <span>ACABAMENTO</span>
+        <span>CORTE</span><i /> <span>BARBA</span><i /> <span>RITUAL PRIME</span>
       </div>
       <Link
         className="scroll-hint"
@@ -52,10 +52,7 @@ export default function Hero({ video }: { video: boolean }) {
         <ArrowDown size={16} />
         <span>CONHEÇA A BARBER PRIME</span>
       </Link>
-      <div className="hero-rating">
-        <Star size={15} />
-        <span>O CLÁSSICO, DO SEU JEITO.</span>
-      </div>
+      <div className="hero-atelier-side" aria-hidden="true">BARBER PRIME / 21° SUL</div>
     </section>
   );
 }
