@@ -175,3 +175,14 @@
   .showcase-controls { margin-top: 34px; }
   .showcase-progress { right: 20px; bottom: 25px; }
 }
+
+
+/* Hero photo and typography refinement */
+.hero-redesign { isolation: isolate; }
+.hero-photo { position:absolute; inset:0; z-index:0; background:url("/images/barber-hero-v2.jpg") center / cover no-repeat; }
+.hero-redesign .hero-video { z-index:1; opacity:.16; }
+.hero-shade { z-index:1; background:linear-gradient(90deg,#080808 0%,#080808f2 31%,#080808b2 56%,#08080820 100%),linear-gradient(0deg,#080808c9 0%,transparent 40%); }
+.hero-content-redesign { z-index:2; }
+.hero-redesign h1 { max-width:800px; font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif; font-size:clamp(56px,7.1vw,106px); font-weight:600; letter-spacing:-5.9px; line-height:.95; text-wrap:balance; text-shadow:0 5px 30px #000a; }
+.hero-meta { z-index:2; }
+@media (max-width:850px) { .hero-photo { background-position:65% center; } .hero-redesign .hero-video { opacity:.12; } .hero-shade { background:linear-gradient(90deg,#080808fa 0%,#080808e2 59%,#08080874 100%),linear-gradient(0deg,#080808e3 0%,transparent 39%); } }
