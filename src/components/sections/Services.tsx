@@ -1,66 +1,54 @@
 "use client";
+
+import { ArrowUpRight, Clock } from "lucide-react";
 import { useState } from "react";
-import { Scissors, Combine, ArrowUpRight, Sparkles, Clock } from "lucide-react";
-import SectionTitle from "@/components/ui/SectionTitle";
 import BookingModal from "@/components/booking/BookingModal";
-import { ServiceData } from "@/types";
 import { money } from "@/lib/utils";
-const icons = [Scissors, Combine, Sparkles, Scissors];
+import { ServiceData } from "@/types";
+
 export default function Services({ services }: { services: ServiceData[] }) {
   const [selected, setSelected] = useState("");
+
   return (
-    <section className="section" id="servicos">
-      <div className="container">
-        <div className="section-heading" data-reveal>
-          <SectionTitle
-            eyebrow="01 / NOSSOS SERVIÇOS"
-            title="O cuidado que define você."
-          >
-            Do clássico ao contemporâneo, excelência em cada detalhe.
-          </SectionTitle>
-          <span className="tiny-note">ESCOLHA SEU RITUAL ↓</span>
-        </div>
-        <div className="service-grid">
-          {services.map((s, i) => {
-            const Icon = icons[i % icons.length];
-            return (
-              <button
-                data-reveal
-                className={
-                  "service-card " + (s.slug === "corte-barba" ? "featured" : "")
-                }
-                key={s._id}
-                onClick={() => setSelected(s.slug)}
-              >
-                {s.slug === "corte-barba" && (
-                  <span className="card-label">O RITUAL COMPLETO</span>
-                )}
-                <div className="card-top">
-                  <Icon size={32} strokeWidth={1} />
-                  <span>0{i + 1}</span>
-                </div>
-                <h3>{s.name}</h3>
-                <p>{s.description}</p>
-                <span className="duration">
-                  <Clock size={13} />
-                  {s.duration} minutos
-                </span>
-                <div className="card-bottom">
-                  <span>{money(s.price)}</span>
-                  <ArrowUpRight size={21} />
-                </div>
-              </button>
-            );
-          })}
+    <section className="atelier-services" id="servicos" aria-label="Serviços e preços">
+      <div className="container atelier-services-grid">
+        <header className="atelier-services-intro" data-reveal>
+          <p className="atelier-label">02 / O QUE FAZEMOS</p>
+          <h2>O seu visual<br />não precisa de<br /><em>fórmula pronta.</em></h2>
+          <p>
+            Primeiro a gente escuta. Depois escolhe técnica, acabamento e ritmo
+            para deixar o resultado com a sua cara.
+          </p>
+          <div className="atelier-service-rule" />
+          <small>Atendimento com horário marcado<br />em Poços de Caldas, MG.</small>
+        </header>
+
+        <div className="atelier-menu" data-reveal>
+          <div className="atelier-menu-head">
+            <span>RITUAIS</span><span>TEMPO</span><span>INVESTIMENTO</span>
+          </div>
+          {services.map((service, index) => (
+            <button
+              className="atelier-menu-row"
+              key={service._id}
+              onClick={() => setSelected(service.slug)}
+            >
+              <span className="atelier-menu-number">0{index + 1}</span>
+              <span className="atelier-menu-name">
+                <strong>{service.name}</strong>
+                <small>{service.description}</small>
+              </span>
+              <span className="atelier-menu-time"><Clock size={13} /> {service.duration} min</span>
+              <span className="atelier-menu-price">{money(service.price)}</span>
+              <ArrowUpRight className="atelier-menu-arrow" size={18} />
+            </button>
+          ))}
+          <button className="atelier-all-book" onClick={() => setSelected(services[0]?.slug ?? "")}>
+            Escolher meu horário <ArrowUpRight size={17} />
+          </button>
         </div>
       </div>
-      {selected && (
-        <BookingModal
-          services={services}
-          selected={selected}
-          onClose={() => setSelected("")}
-        />
-      )}
+      {selected && <BookingModal services={services} selected={selected} onClose={() => setSelected("")} />}
     </section>
   );
 }

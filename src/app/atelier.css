@@ -1,0 +1,89 @@
+/* Barber Prime Atelier — a calmer, photo-led identity for the public site. */
+:root { --atelier-ink: #20231f; --atelier-paper: #eeece5; --atelier-line: #b7b5aa; --atelier-clay: #8b654f; }
+body { background: var(--atelier-paper); color: var(--atelier-ink); }
+.header { background: color-mix(in srgb, var(--atelier-paper) 90%, transparent); border-color: #20231f1a; backdrop-filter: blur(14px); }
+.header.scrolled { background: #eeece5f2; }
+.brand { color: var(--atelier-ink); }
+.brand svg, .brand b { color: var(--atelier-clay); }
+.brand small { color: #66685f; }
+.nav a { color: #3f423c; }
+.nav a:hover { color: var(--atelier-clay); }
+.header-book, .atelier-all-book { background: var(--atelier-ink); border-color: var(--atelier-ink); color: #f7f3ea; box-shadow: none; }
+.header-book:hover, .atelier-all-book:hover { background: var(--atelier-clay); border-color: var(--atelier-clay); }
+
+.hero-redesign { min-height: 760px; background: var(--atelier-paper); color: var(--atelier-ink); }
+.hero-redesign .hero-atelier-photo { background: url("/images/barber-prime-atelier-hero.webp") center / cover no-repeat; z-index: 0; }
+.hero-redesign .hero-video { display: none; }
+.hero-redesign .hero-shade { z-index: 1; background: linear-gradient(90deg, #eeece5 0%, #eeece5f6 35%, #eeece58c 57%, #eeece51a 77%), linear-gradient(0deg, #eeece5bc 0%, transparent 38%); }
+.hero-content-redesign { z-index: 2; padding-top: clamp(180px, 21vh, 242px); }
+.hero-atelier-kicker { color: var(--atelier-clay); font-size: 10px; letter-spacing: 2px; }
+.hero-atelier-kicker i { background: var(--atelier-clay); box-shadow: none; }
+.hero-redesign h1 { max-width: 760px; color: var(--atelier-ink); font-family: Georgia, "Times New Roman", serif; font-size: clamp(58px, 7vw, 108px); font-weight: 400; letter-spacing: -5.7px; line-height: .9; text-shadow: none; }
+.hero-redesign h1 em { color: var(--atelier-clay); font-style: italic; }
+.hero-redesign .hero-content > p { color: #484b44; font-size: 14px; line-height: 1.65; }
+.hero-redesign .button { background: var(--atelier-ink); border-color: var(--atelier-ink); color: #f8f5ed; border-radius: 0; box-shadow: none; }
+.hero-redesign .button:hover { background: var(--atelier-clay); border-color: var(--atelier-clay); }
+.hero-redesign .text-link { color: var(--atelier-ink); border-color: #20231f55; }
+.hero-atelier-note { color: #686a63; font-size: 10px; }
+.hero-atelier-note > span:first-child { color: var(--atelier-clay); font-family: Georgia, serif; font-size: 22px; line-height: 1; }
+.hero-atelier-note > span:last-child { border-color: #20231f35; }
+.hero-meta { color: #343730; }
+.hero-meta i { background: var(--atelier-clay); }
+.hero-redesign .scroll-hint { color: #53564e; }
+.hero-atelier-side { position: absolute; right: 24px; bottom: 36px; z-index: 2; color: #20231f75; font-size: 8px; font-weight: 700; letter-spacing: 2.6px; writing-mode: vertical-rl; transform: rotate(180deg); }
+.ticker { background: var(--atelier-ink); color: #e6dfd1; border: 0; }
+.ticker i { color: #b88969; }
+
+.atelier-services { padding: clamp(92px, 10vw, 150px) 0; background: var(--atelier-paper); border-top: 1px solid #20231f22; }
+.atelier-services-grid { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(470px, 1.2fr); gap: clamp(44px, 9vw, 150px); align-items: start; }
+.atelier-label { margin: 0 0 20px; color: var(--atelier-clay); font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+.atelier-services-intro h2 { margin: 0; color: var(--atelier-ink); font: 400 clamp(48px, 5.1vw, 78px)/.93 Georgia, "Times New Roman", serif; letter-spacing: -3.8px; }
+.atelier-services-intro h2 em { color: var(--atelier-clay); }
+.atelier-services-intro > p:not(.atelier-label) { max-width: 350px; margin: 30px 0 0; color: #55584f; font-size: 14px; line-height: 1.7; }
+.atelier-service-rule { width: 46px; height: 1px; margin: 36px 0 18px; background: var(--atelier-clay); }
+.atelier-services-intro > small { color: #71736b; font-size: 10px; letter-spacing: .3px; line-height: 1.7; }
+.atelier-menu { border-top: 1px solid #20231f99; }
+.atelier-menu-head { display: grid; grid-template-columns: 1fr 82px 115px 20px; gap: 16px; padding: 12px 0; border-bottom: 1px solid #20231f33; color: #777970; font-size: 8px; font-weight: 700; letter-spacing: 1.4px; }
+.atelier-menu-row { width: 100%; display: grid; grid-template-columns: 36px minmax(0, 1fr) 82px 100px 20px; gap: 16px; align-items: center; padding: 24px 0; border-bottom: 1px solid #20231f26; color: var(--atelier-ink); text-align: left; transition: padding .25s ease, background .25s ease; }
+.atelier-menu-row:hover { padding-inline: 12px; background: #dfd8ca8a; }
+.atelier-menu-number { align-self: start; padding-top: 4px; color: var(--atelier-clay); font: 17px Georgia, serif; }
+.atelier-menu-name { display: grid; gap: 7px; }
+.atelier-menu-name strong { font: 400 clamp(22px, 2.1vw, 31px)/1 Georgia, serif; letter-spacing: -1.2px; }
+.atelier-menu-name small { max-width: 310px; color: #65675f; font-size: 11px; line-height: 1.45; }
+.atelier-menu-time { display: inline-flex; align-items: center; gap: 6px; color: #6d7067; font-size: 10px; }
+.atelier-menu-price { color: var(--atelier-clay); font: 20px Georgia, serif; }
+.atelier-menu-arrow { color: #818379; transition: transform .25s ease, color .25s ease; }
+.atelier-menu-row:hover .atelier-menu-arrow { color: var(--atelier-clay); transform: translate(3px,-3px); }
+.atelier-all-book { display: inline-flex; align-items: center; gap: 12px; margin-top: 34px; padding: 16px 20px; font-size: 11px; font-weight: 700; }
+
+.section { background: #f7f5ef; color: var(--atelier-ink); }
+.section-title h2, .section-heading h2 { color: var(--atelier-ink); font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.section-title .eyebrow, .section-heading small { color: var(--atelier-clay); }
+.experience { background: var(--atelier-ink); color: #efeae0; }
+.experience .section-title h2, .experience .section-title .eyebrow { color: #f4eee5; }
+.experience .section-title .eyebrow { color: #caa688; }
+
+@media (max-width: 800px) {
+  .header { background: #eeece5f5; }
+  .nav { background: #eeece5; }
+  .hero-redesign { min-height: 720px; height: 100svh; max-height: 800px; }
+  .hero-redesign .hero-atelier-photo { background-position: 67% center; }
+  .hero-redesign .hero-shade { background: linear-gradient(180deg, #eeece5 0%, #eeece5e8 45%, #eeece53b 100%), linear-gradient(90deg, #eeece5e8 0%, transparent 87%); }
+  .hero-content-redesign { padding-top: 132px; }
+  .hero-redesign h1 { max-width: 350px; font-size: clamp(51px, 14.7vw, 68px); letter-spacing: -3.8px; }
+  .hero-redesign .hero-content > p { max-width: 285px; font-size: 12px; }
+  .hero-actions .button { width: auto; min-width: 225px; }
+  .hero-meta { left: 16px; bottom: 19px; }
+  .hero-atelier-side { display: none; }
+  .atelier-services { padding: 82px 0; }
+  .atelier-services-grid { grid-template-columns: 1fr; gap: 52px; }
+  .atelier-services-intro h2 { font-size: 50px; letter-spacing: -3px; }
+  .atelier-menu-head { grid-template-columns: 1fr 70px 70px 18px; gap: 8px; }
+  .atelier-menu-row { grid-template-columns: 25px minmax(0, 1fr) 65px 59px 18px; gap: 8px; padding: 19px 0; }
+  .atelier-menu-name strong { font-size: 23px; }
+  .atelier-menu-name small { font-size: 10px; }
+  .atelier-menu-time { display: none; }
+  .atelier-menu-head span:nth-child(2) { display: none; }
+  .atelier-menu-head { grid-template-columns: 1fr 70px 18px; }
+  .atelier-menu-price { font-size: 16px; }
+}
