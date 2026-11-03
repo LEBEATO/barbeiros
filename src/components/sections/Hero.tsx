@@ -1,21 +1,18 @@
 "use client";
 import Link from "next/link";
-import { ArrowUpRight, ArrowDown, Star, Scissors } from "lucide-react";
+import { ArrowUpRight, ArrowDown, Star } from "lucide-react";
 import { whatsapp } from "@/lib/utils";
 
 export default function Hero({ video }: { video: boolean }) {
   return (
     <section className="hero hero-redesign" id="inicio">
+      <div className="hero-photo" aria-hidden="true" />
       {video && (
         <video className="hero-video" autoPlay muted loop playsInline>
           <source src="/videos/barber-hero.mp4" type="video/mp4" />
         </video>
       )}
       <div className="hero-shade" aria-hidden="true" />
-      <div className="hero-frame" aria-hidden="true">
-        <span>EST. 2016</span>
-        <Scissors strokeWidth={0.75} />
-      </div>
       <div className="container hero-content hero-content-redesign">
         <div className="hero-location" data-reveal>
           <i /> BARBEARIA PREMIUM · POÇOS DE CALDAS
