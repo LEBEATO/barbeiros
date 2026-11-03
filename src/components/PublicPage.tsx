@@ -1,6 +1,7 @@
 "use client";
 import "@/app/atelier.css";
 import "@/app/premium-redesign.css";
+import "@/app/mobile-app.css";
 import { useEffect, useState } from "react";
 import { services as initial } from "@/data/services";
 import { ServiceData } from "@/types";
@@ -12,6 +13,7 @@ import Gallery from "./sections/Gallery";
 import Testimonials from "./sections/Testimonials";
 import Booking from "./sections/Booking";
 import Contact from "./sections/Contact";
+import MobileBottomNav from "./layout/MobileBottomNav";
 export default function PublicPage({ video }: { video: boolean }) {
   const [services, setServices] = useState<ServiceData[]>(initial);
   const ref = useGsapReveal();
@@ -28,21 +30,13 @@ export default function PublicPage({ video }: { video: boolean }) {
   return (
     <main id="conteudo" ref={ref}>
       <Hero video={video} />
-      <div className="ticker">
-        <span>PRECISÃO NO CORTE</span>
-        <i>✦</i>
-        <span>PERSONALIDADE NO ESTILO</span>
-        <i>✦</i>
-        <span>EXCELÊNCIA NO CUIDADO</span>
-        <i>✦</i>
-        <span>BARBER PRIME</span>
-      </div>
       <Services services={services} />
       <Experience />
       <Gallery />
       <Testimonials />
       <Booking services={services} />
       <Contact />
+      <MobileBottomNav />
     </main>
   );
 }
