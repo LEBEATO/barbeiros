@@ -9,7 +9,6 @@ const links = [
   ["Serviços", "servicos"],
   ["Experiência", "experiencia"],
   ["Galeria", "galeria"],
-  ["Contato", "contato"],
 ];
 export default function Header() {
   const menuRef = useRef<HTMLElement>(null);
