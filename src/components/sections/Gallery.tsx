@@ -1,66 +1,41 @@
-"use client";
-import { useState } from "react";
-import { Scissors, Armchair, UserRound, Expand, Combine } from "lucide-react";
-import SectionTitle from "@/components/ui/SectionTitle";
-import Modal from "@/components/ui/Modal";
-import { gallery } from "@/data/gallery";
-const icons = [Scissors, UserRound, Combine, Armchair];
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Scissors } from "lucide-react";
+
+const styles = [
+  { title: "Low Taper Fade", category: "CORTE", description: "Degradê baixo, laterais limpas e acabamento preciso.", image: "/images/styles/low-taper-fade.webp" },
+  { title: "Textured Crop", category: "CORTE", description: "Textura no topo e fade suave para um visual moderno.", image: "/images/styles/textured-crop.webp" },
+  { title: "Barba Completa", category: "BARBA", description: "Toalha quente, navalha e contorno definido para sua barba.", image: "/images/styles/barba-completa.webp" },
+  { title: "Barba Alinhada", category: "BARBA", description: "Desenho de precisão para uma barba curta sempre em ordem.", image: "/images/styles/barba-alinhada.webp" },
+];
+
 export default function Gallery() {
-  const [index, setIndex] = useState<number | null>(null);
   return (
-    <section id="galeria" className="section">
+    <section id="galeria" className="style-showcase" aria-label="Estilos em destaque">
       <div className="container">
-        <div data-reveal className="section-heading">
-          <SectionTitle
-            eyebrow="03 / NOSSA GALERIA"
-            title="Estilo que fala por si."
-          />
-          <p>
-            Cada detalhe conta uma história.
-            <br />A próxima pode ser a sua.
-          </p>
-        </div>
-        <div className="gallery-grid">
-          {gallery.map((item, i) => {
-            const Icon = icons[i];
-            return (
-              <button
-                key={item.title}
-                className={"gallery-item gallery-" + i}
-                onClick={() => setIndex(i)}
-                aria-label={"Ampliar " + item.title}
-                data-reveal
-              >
-                <Icon className="gallery-icon" strokeWidth={0.5} />
-                <span className="gallery-expand">
-                  <Expand size={16} />
-                </span>
-                <div>
-                  <small>{item.category}</small>
-                  <h3>{item.title}</h3>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-        <p className="demo-note">
-          Galeria conceitual · espaços preparados para suas fotografias.
-        </p>
-      </div>
-      {index !== null && (
-        <Modal title={gallery[index].title} onClose={() => setIndex(null)}>
-          <div className={"gallery-preview gallery-" + index}>
-            {(() => {
-              const Icon = icons[index];
-              return <Icon size={180} strokeWidth={0.5} />;
-            })()}
+        <header className="style-showcase-head" data-reveal>
+          <span className="app-eyebrow"><Scissors size={14} /> ESTILOS EM DESTAQUE</span>
+          <div>
+            <h2>Seu visual,<br /><em>do seu jeito.</em></h2>
+            <p>Veja alguns dos cortes e cuidados de barba que você pode pedir na Barber Prime.</p>
           </div>
-          <p className="demo-note">
-            Imagem ilustrativa. Adicione as fotos reais em
-            public/images/gallery.
-          </p>
-        </Modal>
-      )}
+        </header>
+        <div className="style-card-grid">
+          {styles.map((style) => (
+            <article key={style.title} className="style-card" data-reveal>
+              <div className="style-card-image">
+                <Image src={style.image} alt={`${style.title} realizado na Barber Prime`} fill sizes="(max-width: 700px) 100vw, 50vw" />
+                <span className="style-card-category">{style.category}</span>
+              </div>
+              <div className="style-card-content">
+                <h3>{style.title}</h3>
+                <p>{style.description}</p>
+                <Link href="#agendamento" className="style-card-link">Quero esse estilo <ArrowUpRight size={16} /></Link>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
