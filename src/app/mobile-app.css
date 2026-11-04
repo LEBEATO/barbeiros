@@ -38,6 +38,9 @@ body { background: var(--app-bg); color: var(--app-text); font-family: Arial, He
 .style-card-content p { min-height: 54px; margin: 9px 0 16px; color: #b7b9c3; font-size: 11px; line-height: 1.55; }
 .style-card-link { display: flex; align-items: center; justify-content: space-between; padding-top: 13px; border-top: 1px solid #ffffff1f; color: var(--app-yellow); font-size: 11px; font-weight: 700; }
 .booking-panel { border: 1px solid #ffffff2e; box-shadow: 0 20px 55px #0006; }
+.booking-fieldset { min-width: 0; margin: 0; padding: 0; border: 0; color: #d4d1cc; font-size: 10px; }
+.booking-fieldset legend { padding: 0; }
+.booking-fieldset > small { display: block; margin-top: 8px; color: #f3a69e; font-size: 11px; }
 .booking-choice-grid { display: grid; gap: 8px; margin-top: 9px; }
 .service-choice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .time-choice-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-height: 170px; overflow: auto; padding-right: 3px; }
