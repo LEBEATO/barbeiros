@@ -39,9 +39,3 @@ export const bookingSchema = z
     },
     { message: "Data e horário devem estar no futuro", path: ["date"] },
   );
-export const contactSchema = z.object({
-  name: z.string().trim().min(3).max(100),
-  email: z.email(),
-  whatsapp: z.string().max(20).optional(),
-  message: z.string().trim().min(10).max(2000),
-});
