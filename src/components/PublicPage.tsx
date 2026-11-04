@@ -12,7 +12,6 @@ import Experience from "./sections/Experience";
 import Gallery from "./sections/Gallery";
 import Testimonials from "./sections/Testimonials";
 import Booking from "./sections/Booking";
-import Contact from "./sections/Contact";
 import MobileBottomNav from "./layout/MobileBottomNav";
 export default function PublicPage({ video }: { video: boolean }) {
   const [services, setServices] = useState<ServiceData[]>(initial);
@@ -35,7 +34,6 @@ export default function PublicPage({ video }: { video: boolean }) {
       <Gallery />
       <Testimonials />
       <Booking services={services} />
-      <Contact />
       <MobileBottomNav />
     </main>
   );
