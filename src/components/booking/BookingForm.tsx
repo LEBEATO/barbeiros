@@ -8,6 +8,10 @@ import { bookingSchema } from "@/lib/validation";
 import { ServiceData } from "@/types";
 import { today, whatsapp } from "@/lib/utils";
 import Button from "@/components/ui/Button";
+
+const availableTimes = Array.from({ length: 20 }, (_, i) =>
+  `${String(9 + Math.floor(i / 2)).padStart(2, "0")}:${i % 2 ? "30" : "00"}`,
+);
 export default function BookingForm({
   services,
   selected = "",
@@ -17,11 +21,14 @@ export default function BookingForm({
 }) {
   const [message, setMessage] = useState("");
   const [success, setSuccess] = useState(false);
+  const [selectedService, setSelectedService] = useState(selected);
+  const [selectedTime, setSelectedTime] = useState("");
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     getValues,
+    setValue,
   } = useForm<z.infer<typeof bookingSchema>>({
     resolver: zodResolver(bookingSchema),
     defaultValues: { serviceId: selected, email: "", notes: "" },
@@ -93,14 +100,20 @@ export default function BookingForm({
       </label>
       <label>
         Escolha seu serviço
-        <select {...register("serviceId")}>
-          <option value="">Selecione um serviço</option>
-          {services.map((s) => (
-            <option key={s._id} value={s.slug}>
-              {s.name} · {s.duration} min
-            </option>
+        <input type="hidden" {...register("serviceId")} />
+        <span className="booking-choice-grid service-choice-grid">
+          {services.map((service) => (
+            <button
+              type="button"
+              key={service._id}
+              className={selectedService === service.slug ? "booking-choice active" : "booking-choice"}
+              onClick={() => { setSelectedService(service.slug); setValue("serviceId", service.slug, { shouldValidate: true }); }}
+              aria-pressed={selectedService === service.slug}
+            >
+              <b>{service.name}</b><small>{service.duration} min</small>
+            </button>
           ))}
-        </select>
+        </span>
         {errors.serviceId && <small>{errors.serviceId.message}</small>}
       </label>
       <label>
@@ -110,16 +123,20 @@ export default function BookingForm({
       </label>
       <label>
         Horário
-        <select {...register("time")}>
-          <option value="">Selecione</option>
-          {Array.from({ length: 20 }, (_, i) => {
-            const t =
-              String(9 + Math.floor(i / 2)).padStart(2, "0") +
-              ":" +
-              (i % 2 ? "30" : "00");
-            return <option key={t}>{t}</option>;
-          })}
-        </select>
+        <input type="hidden" {...register("time")} />
+        <span className="booking-choice-grid time-choice-grid">
+          {availableTimes.map((time) => (
+            <button
+              type="button"
+              key={time}
+              className={selectedTime === time ? "booking-choice active" : "booking-choice"}
+              onClick={() => { setSelectedTime(time); setValue("time", time, { shouldValidate: true }); }}
+              aria-pressed={selectedTime === time}
+            >
+              {time}
+            </button>
+          ))}
+        </span>
         {errors.time && <small>{errors.time.message}</small>}
       </label>
       <label className="full">
