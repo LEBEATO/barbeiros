@@ -90,3 +90,18 @@ body { background: var(--app-bg); color: var(--app-text); font-family: Arial, He
 @media (prefers-reduced-motion: reduce) {
   .typing-caret { animation: none; }
 }
+
+
+/* Menu de mais opções da navegação mobile. */
+.mobile-more-backdrop { display:none; }
+.mobile-more-menu { display:none; }
+@media (max-width: 800px) {
+  .mobile-more-backdrop { display:block; position:fixed; inset:0; z-index:81; border:0; background:#0009; cursor:pointer; }
+  .mobile-more-menu { display:grid; position:fixed; z-index:82; left:12px; right:12px; bottom:calc(86px + env(safe-area-inset-bottom)); gap:3px; padding:14px; border:1px solid #ffffff24; border-radius:18px; background:#1b1d26; color:#f7f7fa; box-shadow:0 20px 60px #000a; }
+  .mobile-more-heading { display:flex; justify-content:space-between; align-items:center; padding:5px 8px 10px; font-size:15px; }
+  .mobile-more-heading button { display:grid; place-items:center; width:44px; height:44px; color:inherit; border:0; background:transparent; cursor:pointer; }
+  .mobile-more-menu > a { display:flex; align-items:center; gap:13px; min-height:50px; padding:11px 12px; border-radius:10px; color:#f7f7fa; font-size:14px; text-decoration:none; }
+  .mobile-more-menu > a:hover, .mobile-more-menu > a:focus-visible { background:#ffffff14; color:var(--app-yellow); }
+  .mobile-bottom-nav > button.mobile-nav-item { width:100%; border:0; background:transparent; cursor:pointer; font-family:inherit; }
+  .mobile-bottom-nav > button.mobile-nav-item[aria-expanded="true"] { color:var(--app-yellow); }
+}
