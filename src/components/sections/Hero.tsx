@@ -1,8 +1,45 @@
 "use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ArrowRight, CalendarDays, MapPin, Star } from "lucide-react";
 
+const HERO_TITLE = "Seu melhor estilo\\ncomeça aqui.";
+
 export default function Hero({ video }: { video: boolean }) {
+  const [typedTitle, setTypedTitle] = useState(HERO_TITLE);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let position = HERO_TITLE.length;
+    let deleting = true;
+    let timer: ReturnType<typeof setTimeout>;
+
+    const animateTitle = () => {
+      position += deleting ? -1 : 1;
+      setTypedTitle(HERO_TITLE.slice(0, position));
+
+      if (!deleting && position === HERO_TITLE.length) {
+        deleting = true;
+        timer = setTimeout(animateTitle, 1600);
+        return;
+      }
+
+      if (deleting && position === 0) {
+        deleting = false;
+        timer = setTimeout(animateTitle, 420);
+        return;
+      }
+
+      timer = setTimeout(animateTitle, deleting ? 34 : 72);
+    };
+
+    timer = setTimeout(animateTitle, 1300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const [firstLine, secondLine = ""] = typedTitle.split("\\n");
+
   return (
     <section className="hero hero-redesign" id="inicio">
       <div className="hero-photo hero-atelier-photo" aria-hidden="true" />
@@ -16,9 +53,13 @@ export default function Hero({ video }: { video: boolean }) {
         <div className="hero-location app-kicker" data-reveal>
           <i /> BARBER PRIME · POÇOS DE CALDAS
         </div>
-        <h1 data-reveal>
-          Seu melhor estilo<br />
-          <em>começa aqui.</em>
+        <h1 className="hero-typewriter" data-reveal aria-label="Seu melhor estilo começa aqui.">
+          <span aria-hidden="true">
+            {firstLine || "\\u00a0"}
+            {typedTitle.includes("\\n") && <br />}
+            <em>{secondLine}</em>
+            <i className="typing-caret" />
+          </span>
         </h1>
         <p data-reveal>
           Escolha seu serviço, reserve seu horário e viva uma experiência feita
