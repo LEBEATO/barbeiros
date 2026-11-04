@@ -757,8 +757,7 @@ h3 {
   border: 1px solid var(--border);
   background: var(--surface);
 }
-.booking-panel > h3,
-.contact-form > h3 {
+.booking-panel > h3 {
   font-family: Georgia, serif;
   font-size: 24px;
   margin-bottom: 8px;
@@ -837,52 +836,6 @@ label > small,
 }
 .success p {
   margin-bottom: 28px;
-}
-.contact {
-  background: #11110f;
-  border-block: 1px solid #ffffff08;
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 110px;
-}
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 35px;
-  display: grid;
-  gap: 26px;
-}
-.contact-list li {
-  display: flex;
-  gap: 17px;
-  align-items: start;
-  font-size: 11px;
-}
-.contact-list svg {
-  color: var(--gold);
-  width: 17px;
-  flex-shrink: 0;
-}
-.contact-list b {
-  font-size: 11px;
-  font-weight: 500;
-}
-.contact-list p {
-  font-size: 11px;
-  margin: 8px 0 0;
-}
-.contact-form {
-  display: grid;
-  gap: 19px;
-}
-.contact-form > h3 {
-  margin: 0 0 5px;
-}
-.contact-form .button {
-  justify-self: start;
-  min-width: 180px;
 }
 footer {
   padding: 45px 0 0;
@@ -1243,8 +1196,7 @@ th {
   .experience-grid {
     gap: 50px;
   }
-  .booking-grid,
-  .contact-grid {
+  .booking-grid {
     gap: 50px;
   }
   .service-card {
@@ -1379,9 +1331,6 @@ th {
   }
   .booking-grid > .section-title {
     max-width: none;
-  }
-  .contact-grid {
-    gap: 45px;
   }
   .admin-sidebar {
     width: 200px;
@@ -1629,13 +1578,6 @@ th {
     padding: 12px 9px;
     font-size: 11px;
     min-height: 44px;
-  }
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-  .contact-form {
-    gap: 22px;
   }
   .footer-top {
     align-items: start;

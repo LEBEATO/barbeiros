@@ -1,10 +1,6 @@
 ﻿import assert from "node:assert/strict";
 import { randomBytes } from "node:crypto";
-import {
-  bookingSchema,
-  contactSchema,
-  serviceSchema,
-} from "../src/lib/validation";
+import { bookingSchema, serviceSchema } from "../src/lib/validation";
 import { signToken, verifyToken } from "../src/lib/auth";
 
 async function check() {
@@ -36,19 +32,6 @@ async function check() {
   );
   assert.equal(
     bookingSchema.safeParse({ ...booking, email: "inválido" }).success,
-    false,
-  );
-  assert.equal(
-    contactSchema.safeParse({
-      name: "Teste",
-      email: "teste@exemplo.com",
-      message: "Quero conhecer os serviços.",
-    }).success,
-    true,
-  );
-  assert.equal(
-    contactSchema.safeParse({ name: "Teste", email: "inválido", message: "oi" })
-      .success,
     false,
   );
   assert.equal(
