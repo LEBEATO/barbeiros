@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CalendarDays, Ellipsis, Home, LockKeyhole, MapPin, MessageCircle, Scissors, X } from "lucide-react";
-import { whatsappLink } from "@/lib/utils";
+import { whatsapp } from "@/lib/utils";
 
 const items = [
   { label: "Início", href: "#inicio", Icon: Home },
@@ -46,10 +46,10 @@ export default function MobileBottomNav() {
                 <X size={20} />
               </button>
             </div>
-            <Link ref={firstOption} href="#contato" onClick={() => setOpen(false)}>
-              <MapPin size={20} /> Contato e localização
+            <Link ref={firstOption} href="#agendamento" onClick={() => setOpen(false)}>
+              <MapPin size={20} /> Agendamento e contato
             </Link>
-            <a href={whatsappLink("Olá! Gostaria de falar com a barbearia.")} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+            <a href={whatsapp("Olá! Gostaria de falar com a barbearia.")} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
               <MessageCircle size={20} /> WhatsApp
             </a>
             <Link href="/admin" onClick={() => setOpen(false)}>
