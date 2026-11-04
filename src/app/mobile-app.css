@@ -66,3 +66,27 @@ body { background: var(--app-bg); color: var(--app-text); font-family: Arial, He
   .style-card-category { top: 9px; left: 9px; padding: 6px 7px; font-size: 8px; }
   .time-choice-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+
+/* Interações de toque e título em digitação contínua. */
+.hero-redesign h1 { min-height: 1.9em; }
+.typing-caret { display: inline-block; width: .08em; height: .83em; margin-left: .07em; vertical-align: -.04em; background: var(--app-yellow); animation: caret-blink .82s steps(1, end) infinite; }
+@keyframes caret-blink { 50% { opacity: 0; } }
+
+.app-main-cta { min-height: 60px; padding: 18px 30px; font-size: 16px; font-weight: 800; }
+.button, button:not(:disabled), .app-service-card, .style-card-link { transition: background-color .22s ease, border-color .22s ease, color .22s ease, box-shadow .22s ease, transform .18s ease; }
+.button:active, button:not(:disabled):active, .app-service-card:active, .style-card-link:active { transform: scale(.975); }
+.app-main-cta:active { background: #e6a600 !important; box-shadow: 0 4px 12px #ffbd0b40; }
+.app-all-book { transition: background-color .22s ease, color .22s ease, box-shadow .22s ease, transform .18s ease; }
+.app-all-book:hover { background: #ffd35a; box-shadow: 0 8px 22px #ffbd0b2e; }
+.app-all-book:active { background: #e6a600; color: #100d06; transform: scale(.975); }
+.booking-choice:active { border-color: var(--app-yellow); background: #ffbd0b26; color: var(--app-yellow); transform: scale(.97); }
+.mobile-nav-item:active { color: var(--app-yellow); }
+
+@media (max-width: 800px) {
+  .hero-actions .app-main-cta { max-width: 320px; font-size: 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-caret { animation: none; }
+}
