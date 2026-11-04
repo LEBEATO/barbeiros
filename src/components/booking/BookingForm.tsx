@@ -98,10 +98,10 @@ export default function BookingForm({
         />
         {errors.email && <small>{errors.email.message}</small>}
       </label>
-      <label>
-        Escolha seu serviço
+      <fieldset className="booking-fieldset">
+        <legend>Escolha seu serviço</legend>
         <input type="hidden" {...register("serviceId")} />
-        <span className="booking-choice-grid service-choice-grid">
+        <div className="booking-choice-grid service-choice-grid">
           {services.map((service) => (
             <button
               type="button"
@@ -113,18 +113,18 @@ export default function BookingForm({
               <b>{service.name}</b><small>{service.duration} min</small>
             </button>
           ))}
-        </span>
+        </div>
         {errors.serviceId && <small>{errors.serviceId.message}</small>}
-      </label>
+      </fieldset>
       <label>
         Data
         <input {...register("date")} type="date" min={today()} />
         {errors.date && <small>{errors.date.message}</small>}
       </label>
-      <label>
-        Horário
+      <fieldset className="booking-fieldset">
+        <legend>Horário</legend>
         <input type="hidden" {...register("time")} />
-        <span className="booking-choice-grid time-choice-grid">
+        <div className="booking-choice-grid time-choice-grid">
           {availableTimes.map((time) => (
             <button
               type="button"
@@ -136,9 +136,9 @@ export default function BookingForm({
               {time}
             </button>
           ))}
-        </span>
+        </div>
         {errors.time && <small>{errors.time.message}</small>}
-      </label>
+      </fieldset>
       <label className="full">
         Observação <span>(opcional)</span>
         <textarea
