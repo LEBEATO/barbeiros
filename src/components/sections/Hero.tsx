@@ -55,7 +55,7 @@ export default function Hero({ video }: { video: boolean }) {
         </div>
         <h1 className="hero-typewriter" data-reveal aria-label="Seu melhor estilo começa aqui.">
           <span aria-hidden="true">
-            {firstLine || "\\u00a0"}
+            {firstLine || "\u00a0"}
             {typedTitle.includes("\\n") && <br />}
             <em>{secondLine}</em>
             <i className="typing-caret" />
